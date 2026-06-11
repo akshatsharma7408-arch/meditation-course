@@ -5,7 +5,7 @@ export default function BonusCards() {
       <div className="bonus-grid">
 
         <div className="bonus-card">
-          <img src="/bonus-book.png" alt="Meditation Journal PDF" className="bonus-card__img" />
+          <img src="/meditation-course/bonus-book.png" alt="Meditation Journal PDF" className="bonus-card__img" />
           <div className="bonus-card__body">
             <span className="bonus-card__badge">Free Bonus</span>
             <h3 className="bonus-card__title">The Inner Peace Journal</h3>

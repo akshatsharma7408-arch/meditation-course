@@ -2,9 +2,9 @@
 import { useState, useEffect, useCallback, forwardRef } from 'react';
 
 const slides = [
-  { bg: '/hero-bg.png', pos: 'center 35%' },
-  { bg: '/hero-bg.png', pos: 'center 60%' },
-  { bg: '/hero-bg.png', pos: 'left 40%' },
+  { bg: '/meditation-course/hero-bg.png', pos: 'center 35%' },
+  { bg: '/meditation-course/hero-bg.png', pos: 'center 60%' },
+  { bg: '/meditation-course/hero-bg.png', pos: 'left 40%' },
 ];
 
 const CheckIcon = () => (
