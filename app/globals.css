@@ -846,9 +846,11 @@ button { border: none; cursor: pointer; font-family: inherit; }
   position: fixed;
   bottom: 0; left: 0; right: 0;
   z-index: 999;
-  background: rgba(17,16,16,.95);
+  background: rgba(17,16,16,.97);
   backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   padding: var(--space-md) var(--space-xl);
+  padding-bottom: calc(var(--space-md) + env(safe-area-inset-bottom, 0px));
   border-top: 1px solid rgba(255,255,255,.08);
 }
 .mobile-cta-bar__inner {
@@ -862,57 +864,218 @@ button { border: none; cursor: pointer; font-family: inherit; }
   font-size: 1.15rem;
   color: var(--clr-text-on-dark);
 }
+.mobile-cta-bar__price-original {
+  font-size: .75rem;
+  text-decoration: line-through;
+  color: var(--clr-text-light);
+  display: block;
+  font-weight: 400;
+}
 .mobile-cta-bar__btn {
   background: var(--clr-accent);
   color: #fff;
   font-weight: 700;
-  padding: .7rem 1.8rem;
+  padding: .75rem 1.8rem;
   border-radius: var(--radius-pill);
   font-size: .95rem;
   transition: background var(--dur-fast), transform var(--dur-fast);
+  min-height: 48px;
+  min-width: 130px;
 }
-.mobile-cta-bar__btn:hover {
+.mobile-cta-bar__btn:active {
   background: var(--clr-accent-hover);
-  transform: scale(1.04);
+  transform: scale(0.97);
 }
 
-/* RESPONSIVE */
+/* ============================================================
+   RESPONSIVE — Tablet ≤ 1024px
+   ============================================================ */
 @media (max-width: 1024px) {
   .page-body {
     grid-template-columns: 1fr;
     gap: var(--space-2xl);
-    padding: var(--space-2xl) var(--space-lg);
+    padding: var(--space-2xl) var(--space-xl);
   }
   .sidebar {
     position: static;
     order: -1;
   }
+  /* Show mobile CTA bar, add bottom padding so content isn't hidden behind it */
   .mobile-cta-bar { display: block; }
-  body { padding-bottom: 72px; }
+  body { padding-bottom: calc(80px + env(safe-area-inset-bottom, 0px)); }
+
+  /* Reviews: two columns on tablets */
+  .reviews-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
+/* ============================================================
+   RESPONSIVE — Mobile ≤ 768px
+   ============================================================ */
 @media (max-width: 768px) {
-  .hero__content { padding: var(--space-2xl) var(--space-lg); }
-  .hero__title { font-size: clamp(1.8rem, 7vw, 2.6rem); }
-  .hero__benefits { flex-direction: column; align-items: center; }
-  .sticky-nav__title { max-width: 140px; font-size: .9rem; }
-  .sticky-nav__meta { gap: var(--space-sm); }
-  .sticky-nav__price { font-size: .9rem; }
+  /* --- Typography scale --- */
+  html { font-size: 15px; }
+
+  .section-label { font-size: 1.45rem; }
+  .intro p { font-size: 1rem; line-height: 1.8; }
+
+  /* --- Sticky Nav --- */
+  .sticky-nav__inner { padding: 0 1rem; gap: .75rem; }
+  .sticky-nav__title { max-width: 130px; font-size: .88rem; }
+  .sticky-nav__meta  { gap: .5rem; }
   .sticky-nav__stars { display: none; }
+  .sticky-nav__price { font-size: .88rem; }
+  .sticky-nav__cta   { font-size: .82rem; padding: .5rem 1rem; }
+
+  /* --- Hero --- */
+  .hero { min-height: 88vh; }
+  .hero__content { padding: 2rem 1.25rem; gap: 1rem; }
+  .hero__overline { font-size: .68rem; letter-spacing: 2.5px; }
+  .hero__title { font-size: clamp(1.75rem, 8vw, 2.6rem); }
+  .hero__subtitle { font-size: .97rem; }
+  .hero__benefits {
+    flex-direction: column;
+    align-items: center;
+    gap: .5rem;
+  }
+  .hero__tags { gap: .4rem; }
+  .hero__tag { font-size: .72rem; padding: .35rem .85rem; }
+  .hero__scroll-hint { display: none; } /* hidden on small screens — reduces clutter */
+
+  /* --- Page body --- */
+  .page-body { padding: 2rem 1rem; gap: 2rem; }
+  .main-content { gap: 2.5rem; }
+
+  /* --- Sidebar: horizontal summary on tablet-mobile --- */
+  .sidebar__summary-grid { grid-template-columns: repeat(2, 1fr); }
+  .sidebar__card { padding: 1.25rem; }
+  .sidebar__price { font-size: 1.75rem; }
+
+  /* --- Accordion --- */
+  .accordion__trigger { padding: 1rem 1.25rem; font-size: .95rem; }
+  .accordion__body-inner { padding: 0 1.25rem 1.25rem; }
+
+  /* --- Learn list --- */
+  .learn-list li { font-size: .95rem; }
+
+  /* --- Bonus grid: 1 column --- */
+  .bonus-grid { grid-template-columns: 1fr; }
+  .bonus-card__body { padding: 1rem; }
+
+  /* --- Reviews --- */
+  .reviews-section { padding: 3rem 1rem; }
   .reviews-header {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
     text-align: center;
   }
+  .rating-summary { padding: 1.25rem 1.5rem; }
+  .rating-summary__number { font-size: 3rem; }
   .reviews-grid { grid-template-columns: 1fr; }
-  .section-label { font-size: 1.4rem; }
-  .bonus-grid { grid-template-columns: 1fr; }
+  .review-card { padding: 1.25rem; }
+
+  /* --- Rating bar: tighter grid --- */
+  .rating-bar { grid-template-columns: 55px 1fr 42px; gap: .5rem; }
+
+  /* --- Mobile CTA --- */
+  .mobile-cta-bar { padding: .875rem 1.25rem; padding-bottom: calc(.875rem + env(safe-area-inset-bottom, 0px)); }
+  .mobile-cta-bar__btn { padding: .7rem 1.4rem; font-size: .9rem; }
+
+  /* --- Footer --- */
+  .site-footer { padding: 2rem 1rem; font-size: .82rem; }
 }
 
+/* ============================================================
+   RESPONSIVE — Small phones ≤ 480px
+   ============================================================ */
 @media (max-width: 480px) {
-  :root { --space-xl: 1rem; }
+  html { font-size: 14.5px; }
+
+  /* Nav: hide price too on very small phones, just show CTA */
+  .sticky-nav__price { display: none; }
+  .sticky-nav__title { max-width: 160px; font-size: .85rem; }
+  .sticky-nav__cta { padding: .48rem .9rem; font-size: .8rem; }
+
+  /* Hero */
   .hero { min-height: 85vh; }
-  .sticky-nav__inner { padding: 0 var(--space-md); }
-  .sidebar__summary-grid { grid-template-columns: 1fr; }
+  .hero__content { padding: 1.5rem 1rem; }
+  .hero__title { font-size: clamp(1.6rem, 9.5vw, 2.2rem); }
+  .hero__subtitle { font-size: .93rem; }
+  .hero__overline::before, .hero__overline::after { width: 18px; }
+  .hero__dots { margin-top: .75rem; }
+
+  /* Layout */
+  .page-body { padding: 1.5rem .875rem; gap: 1.75rem; }
+  .section-label { font-size: 1.3rem; gap: .75rem; }
+
+  /* Sidebar summary: 2 cols still fine */
+  .sidebar__summary-grid { grid-template-columns: repeat(2, 1fr); }
+  .sidebar__price { font-size: 1.6rem; }
+  .sidebar__cta-btn { font-size: 1rem; padding: .9rem 0; }
+
+  /* Accordion */
+  .accordion__trigger { padding: .875rem 1rem; font-size: .9rem; }
+  .accordion__series-num { width: 28px; height: 28px; font-size: .78rem; }
+  .accordion__body-inner { padding: 0 1rem 1rem; }
+  .accordion__body-inner li { font-size: .88rem; }
+  .accordion__session-count { display: none; } /* avoid overflow on tiny screens */
+
+  /* Review cards */
+  .review-card { padding: 1rem; }
+  .review-card__name { flex-wrap: wrap; gap: 4px; }
+  .review-card__verified { font-size: .65rem; }
+  .rating-bar { grid-template-columns: 48px 1fr 38px; font-size: .82rem; }
+
+  /* Mobile CTA */
+  .mobile-cta-bar__price { font-size: 1rem; }
+  .mobile-cta-bar__btn { padding: .7rem 1.1rem; font-size: .88rem; min-width: 110px; }
+}
+
+/* ============================================================
+   RESPONSIVE — Extra-small phones ≤ 360px (SE, older Androids)
+   ============================================================ */
+@media (max-width: 360px) {
+  html { font-size: 14px; }
+
+  .page-body { padding: 1.25rem .75rem; }
+  .hero__content { padding: 1.25rem .875rem; }
+  .hero__title { font-size: clamp(1.45rem, 10vw, 1.9rem); }
+  .sticky-nav__title { max-width: 120px; }
+
+  .sidebar__summary-grid { grid-template-columns: repeat(2, 1fr); }
+  .accordion__trigger { padding: .75rem .875rem; }
+
+  .mobile-cta-bar__inner { gap: .5rem; }
+  .mobile-cta-bar__btn { padding: .65rem .9rem; min-width: 100px; }
+}
+
+/* ============================================================
+   TOUCH — remove hover effects on touch devices
+   ============================================================ */
+@media (hover: none) {
+  .bonus-card:hover { transform: none; box-shadow: none; }
+  .review-card:hover { transform: none; box-shadow: var(--shadow-sm); }
+  .sidebar__summary-item:hover { transform: none; border-color: transparent; }
+  .sticky-nav__cta:hover { transform: none; box-shadow: none; }
+  .sidebar__cta-btn:hover { transform: none; }
+  .sidebar__cta-btn:hover::after { opacity: 0; }
+  /* Use :active for touch feedback instead */
+  .bonus-card:active { transform: scale(0.98); }
+  .review-card:active { box-shadow: var(--shadow-md); }
+  .sticky-nav__cta:active { background: var(--clr-accent-hover); }
+  .sidebar__cta-btn:active { background: var(--clr-accent-hover); transform: scale(0.98); }
+}
+
+/* ============================================================
+   ACCESSIBILITY — reduced motion
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+  .reveal { opacity: 1; transform: none; }
 }
 
 .sr-only {
