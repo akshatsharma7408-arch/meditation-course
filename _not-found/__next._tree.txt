@@ -1,2 +1,2 @@
-:HL["/meditation-course/_next/static/chunks/0sntcmh6kwzjl.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"/_not-found","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"vqoVqxYU6AeP_LWTf6CLO"}
+:HL["/meditation-course/_next/static/chunks/2nmknalnhw6hx.css","style"]
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"/_not-found","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"GViKohuuDDHz2KRHWrmy3"}
