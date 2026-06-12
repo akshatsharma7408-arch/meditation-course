@@ -23,7 +23,7 @@ export default function LearnSection() {
         {items.map((item, i) => (
           <li key={i}>
             <LearnIcon />
-            {item}
+            <span>{item}</span>
           </li>
         ))}
       </ul>
