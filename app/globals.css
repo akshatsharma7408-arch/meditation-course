@@ -465,52 +465,38 @@ button { border: none; cursor: pointer; font-family: inherit; }
   flex-shrink: 0;
 }
 
-/* LEARN GRID */
-.learn-grid {
+/* LEARN LIST */
+.learn-list {
   list-style: none;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
 }
-.learn-card {
+.learn-item {
   display: flex;
   align-items: flex-start;
-  gap: .75rem;
+  gap: .875rem;
+  padding: .875rem 1rem;
   background: var(--clr-bg-card);
   border: 1px solid var(--clr-border);
   border-radius: var(--radius-md);
-  padding: 1rem 1.1rem;
-  transition: box-shadow var(--dur-fast), transform var(--dur-fast);
 }
-.learn-card:hover {
-  box-shadow: var(--shadow-md);
-  transform: translateY(-2px);
-}
-.learn-card__icon {
+.learn-check {
   width: 22px;
   height: 22px;
   color: var(--clr-accent);
   flex-shrink: 0;
-  margin-top: 2px;
+  margin-top: 1px;
 }
-.learn-card__text {
-  font-size: .95rem;
-  line-height: 1.65;
+.learn-item p {
+  font-size: 1rem;
+  line-height: 1.7;
   color: var(--clr-text-body);
-  min-width: 0;
+  margin: 0;
 }
-.learn-card__bold {
-  display: block;
-  font-weight: 700;
+.learn-item strong {
   color: var(--clr-text-primary);
-  font-size: .95rem;
-  line-height: 1.4;
-  margin-bottom: .2rem;
-}
-.learn-card__rest {
-  font-size: .88rem;
-  color: var(--clr-text-muted);
-  line-height: 1.55;
+  font-weight: 600;
 }
 
 /* BONUS CARDS */
@@ -983,14 +969,9 @@ button { border: none; cursor: pointer; font-family: inherit; }
   .accordion__trigger { padding: 1rem 1.25rem; font-size: .95rem; }
   .accordion__body-inner { padding: 0 1.25rem 1.25rem; }
 
-  /* --- Learn list --- */
-  .learn-list li { font-size: .95rem; }
-
-  /* --- Learn grid: 1 column on mobile --- */
-  .learn-grid { grid-template-columns: 1fr; gap: .75rem; }
-  .learn-card { padding: .875rem 1rem; }
-  .learn-card__bold { font-size: .92rem; }
-  .learn-card__rest { font-size: .85rem; }
+  /* --- Learn list: tighter on mobile --- */
+  .learn-item { padding: .75rem .875rem; gap: .75rem; }
+  .learn-item p { font-size: .95rem; }
 
   /* --- Bonus grid: 1 column --- */
   .bonus-grid { grid-template-columns: 1fr; }
@@ -1047,12 +1028,10 @@ button { border: none; cursor: pointer; font-family: inherit; }
   .sidebar__price { font-size: 1.6rem; }
   .sidebar__cta-btn { font-size: 1rem; padding: .9rem 0; }
 
-  /* --- Learn grid at 480px --- */
-  .learn-grid { gap: .6rem; }
-  .learn-card { padding: .75rem .875rem; gap: .6rem; }
-  .learn-card__icon { width: 20px; height: 20px; }
-  .learn-card__bold { font-size: .88rem; }
-  .learn-card__rest { font-size: .82rem; }
+  /* --- Learn list at 480px --- */
+  .learn-item { padding: .65rem .75rem; gap: .6rem; }
+  .learn-check { width: 20px; height: 20px; }
+  .learn-item p { font-size: .9rem; line-height: 1.65; }
 
   /* Accordion */
   .accordion__trigger { padding: .875rem 1rem; font-size: .9rem; }
@@ -1084,9 +1063,8 @@ button { border: none; cursor: pointer; font-family: inherit; }
   .sticky-nav__title { max-width: 120px; }
 
   .sidebar__summary-grid { grid-template-columns: repeat(2, 1fr); }
-  .learn-card { padding: .65rem .75rem; }
-  .learn-card__bold { font-size: .85rem; }
-  .learn-card__rest { font-size: .8rem; }
+  .learn-item { padding: .6rem .7rem; }
+  .learn-item p { font-size: .88rem; }
   .accordion__trigger { padding: .75rem .875rem; }
 
   .mobile-cta-bar__inner { gap: .5rem; }
@@ -1097,8 +1075,7 @@ button { border: none; cursor: pointer; font-family: inherit; }
    TOUCH — remove hover effects on touch devices
    ============================================================ */
 @media (hover: none) {
-  .learn-card:hover { transform: none; box-shadow: none; }
-  .learn-card:active { box-shadow: var(--shadow-sm); transform: scale(0.99); }
+  .learn-item:active { background: var(--clr-bg-card-alt); }
   .bonus-card:hover { transform: none; box-shadow: none; }
   .review-card:hover { transform: none; box-shadow: var(--shadow-sm); }
   .sidebar__summary-item:hover { transform: none; border-color: transparent; }

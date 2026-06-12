@@ -1,37 +1,6 @@
-const items = [
-  {
-    bold: 'Consistent daily meditation habit',
-    rest: 'that actually sticks — even if you\'ve failed before',
-  },
-  {
-    bold: 'Manage stress, anxiety & overthinking',
-    rest: 'with simple breathing anchors you can use anywhere',
-  },
-  {
-    bold: 'The body scan method',
-    rest: 'used by therapists and elite athletes for deep physical relaxation',
-  },
-  {
-    bold: 'Loving-kindness (Metta) meditation',
-    rest: 'to cultivate empathy and lasting emotional resilience',
-  },
-  {
-    bold: 'Sit with difficult emotions',
-    rest: 'without being overwhelmed — transform your relationship with discomfort',
-  },
-  {
-    bold: 'Walking meditation & everyday mindfulness',
-    rest: 'bringing awareness far beyond the cushion',
-  },
-  {
-    bold: 'Your personal practice plan',
-    rest: 'so you can continue independently long after the course ends',
-  },
-];
-
 const CheckIcon = () => (
   <svg
-    className="learn-card__icon"
+    className="learn-check"
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
@@ -47,18 +16,45 @@ const CheckIcon = () => (
 
 export default function LearnSection() {
   return (
-    <section id="learn" className="learn-section">
+    <section id="learn">
       <h2 className="section-label">What You Will Learn</h2>
-      <ul className="learn-grid" role="list">
-        {items.map((item, i) => (
-          <li key={i} className="learn-card">
-            <CheckIcon />
-            <div className="learn-card__text">
-              <strong className="learn-card__bold">{item.bold}</strong>
-              <span className="learn-card__rest"> {item.rest}</span>
-            </div>
-          </li>
-        ))}
+      <ul className="learn-list">
+
+        <li className="learn-item">
+          <CheckIcon />
+          <p>How to build a <strong>consistent daily meditation habit</strong> that actually sticks — even if you&apos;ve failed before</p>
+        </li>
+
+        <li className="learn-item">
+          <CheckIcon />
+          <p>Techniques to <strong>manage stress, anxiety, and overthinking</strong> with simple breathing anchors</p>
+        </li>
+
+        <li className="learn-item">
+          <CheckIcon />
+          <p>The <strong>body scan method</strong> used by therapists and elite athletes for deep physical relaxation</p>
+        </li>
+
+        <li className="learn-item">
+          <CheckIcon />
+          <p><strong>Loving-kindness (Metta) meditation</strong> to cultivate empathy and emotional resilience</p>
+        </li>
+
+        <li className="learn-item">
+          <CheckIcon />
+          <p>How to <strong>sit with difficult emotions</strong> without being overwhelmed — and transform your relationship with discomfort</p>
+        </li>
+
+        <li className="learn-item">
+          <CheckIcon />
+          <p><strong>Walking meditation</strong> and everyday mindfulness — bringing awareness beyond the cushion</p>
+        </li>
+
+        <li className="learn-item">
+          <CheckIcon />
+          <p>A <strong>personal practice plan</strong> so you can continue independently long after the course ends</p>
+        </li>
+
       </ul>
     </section>
   );
