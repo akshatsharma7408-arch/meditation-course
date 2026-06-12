@@ -489,6 +489,8 @@ button { border: none; cursor: pointer; font-family: inherit; }
   margin-top: 1px;
 }
 .learn-item p {
+  flex: 1;
+  min-width: 0;
   font-size: 1rem;
   line-height: 1.7;
   color: var(--clr-text-body);
