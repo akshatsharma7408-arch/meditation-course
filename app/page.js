@@ -43,9 +43,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="reveal reveal-delay-3">
-            <Sidebar />
-          </div>
+          <Sidebar />
         </div>
 
         <div className="reveal">

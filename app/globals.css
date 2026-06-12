@@ -558,6 +558,7 @@ button { border: none; cursor: pointer; font-family: inherit; }
   display: flex;
   flex-direction: column;
   gap: var(--space-lg);
+  align-self: start;
 }
 .sidebar__card {
   background: var(--clr-bg-sidebar);
